@@ -1,0 +1,25 @@
+# Ejemplo de archivo terraform.tfvars
+# Copia este archivo a terraform.tfvars y personaliza los valores según tus necesidades
+
+# Configuración básica del cluster
+resource_group_name = "rg-aks-public-lb-prod"
+location           = "East US"
+cluster_name       = "aks-public-cluster-prod"
+dns_prefix         = "akspublic-prod"
+
+# Configuración de Kubernetes
+kubernetes_version = "1.28.3"
+node_count        = 3
+node_vm_size      = "Standard_D2s_v3"
+
+# Configuración de red
+vnet_address_space        = ["10.0.0.0/16"]
+aks_subnet_address_prefix = "10.0.1.0/23"
+
+# Tags
+tags = {
+  Environment = "production"
+  Project     = "aks-public-cluster"
+  CreatedBy   = "terraform"
+  Owner       = "infrastructure-team"
+}
